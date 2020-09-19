@@ -1,0 +1,55 @@
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'home/signin.css' %}" rel="stylesheet">
+
+    <title>Sign Up</title>
+</head>
+
+{% block content %}
+
+<body class="text-center">
+
+    <form method="POST" action="#" class="form-signin">
+        {% csrf_token %}
+        <img class="mb-4" src="https://www.flaticon.com/svg/static/icons/svg/2909/2909865.svg" alt="" width="72"
+            height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Create New Account</h1>
+        <div class="form control mb-2">
+            {{ form.first_name | as_crispy_field }}
+        </div>
+        <div class="form control mb-2">
+            {{ form.last_name | as_crispy_field }}
+        </div>
+        <div class="form control mb-2">
+            {{ form.email | as_crispy_field }}
+        </div>
+        <div class="form control mb-2">
+            {{ form.password | as_crispy_field }}
+        </div>
+        <div class="form control mb-2">
+            {{ form.bio | as_crispy_field }}
+        </div>
+
+        <button class="btn btn-lg btn-info btn-block" type="submit">Sign Up</button>
+
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+    </form>
+
+
+</body>
+{% endblock content %}
+
+</html>
